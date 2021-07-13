@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{.PageTitle}}</title>
+        </head>
+
+
+<body>
+
+    <p> Let's begin the quiz!</p>
+    <form action="/answers" method="POST">
+        <ol>
+        {{range .Inputs}}
+        <li>{{.Question}}</li>
+        {{range .RadioButtons}}
+            <input type="radio" id="{{.Id}}" name="{{.Name}}" value="{{.Value}}">
+            <label for={{.Id}}>{{.Text}}</label>
+        {{end}}
+        <br><br>
+        {{end}}
+        </ol>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
